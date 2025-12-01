@@ -149,17 +149,35 @@ st.markdown("""
 """)
 
 
-st.markdown("---")
+#st.markdown("---")
 
 # Кнопка "Назад"
-if st.button("Назад на главную страницу", use_container_width=True, key="back_news"):
-    st.markdown("""
-    <div class='custom-box'>
-        <h4 style='color: #ff69b4; margin-top: 0;'>Перейти на главную страницу</h4>
-        <a href='https://creative-marscapone-486.notion.site/2b1c3df492be8046aaadca5da0034963?pvs=73' 
-           target='_blank' 
-           style='color: #ff1493; text-decoration: none; font-weight: bold; font-size: 16px;'>
-           Главная страница
-        </a>
-    </div>
-    """, unsafe_allow_html=True)
+#if st.button("Назад на главную страницу", use_container_width=True, key="back_news"):
+#    st.markdown("""
+#    <div class='custom-box'>
+#        <h4 style='color: #ff69b4; margin-top: 0;'>Перейти на главную страницу</h4>
+#        <a href='https://creative-marscapone-486.notion.site/2b1c3df492be8046aaadca5da0034963?pvs=73' 
+#           target='_blank' 
+#           style='color: #ff1493; text-decoration: none; font-weight: bold; font-size: 16px;'>
+#           Главная страница
+#        </a>
+#    </div>
+#""", unsafe_allow_html=True)
+# Кнопка "Назад"
+st.markdown("""
+    <a href="https://creative-marscapone-486.notion.site/2b1c3df492be8046aaadca5da0034963?pvs=73" target="_blank">
+        <button style="
+            width: 100%;
+            background-color: #ffb6d9;
+            color: white;
+            border-radius: 12px;
+            border: 2px solid #ff69b4;
+            padding: 10px 18px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+        ">
+            Назад на главную страницу
+        </button>
+    </a>
+""", unsafe_allow_html=True)
