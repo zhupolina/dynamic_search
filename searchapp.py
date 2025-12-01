@@ -148,36 +148,40 @@ st.markdown("""
 - **Жанры, в которых работал Моне**  
 """)
 
-
-#st.markdown("---")
-
-# Кнопка "Назад"
-#if st.button("Назад на главную страницу", use_container_width=True, key="back_news"):
-#    st.markdown("""
-#    <div class='custom-box'>
-#        <h4 style='color: #ff69b4; margin-top: 0;'>Перейти на главную страницу</h4>
-#        <a href='https://creative-marscapone-486.notion.site/2b1c3df492be8046aaadca5da0034963?pvs=73' 
-#           target='_blank' 
-#           style='color: #ff1493; text-decoration: none; font-weight: bold; font-size: 16px;'>
-#           Главная страница
-#        </a>
-#    </div>
-#""", unsafe_allow_html=True)
-# Кнопка "Назад"
 st.markdown("""
-    <a href="https://creative-marscapone-486.notion.site/2b1c3df492be8046aaadca5da0034963?pvs=73" target="_blank">
-        <button style="
+    <style>
+        .glass-btn {
             width: 100%;
-            background-color: #ffb6d9;
-            color: white;
-            border-radius: 12px;
-            border: 2px solid #ff69b4;
-            padding: 10px 18px;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-family: 'Times New Roman', serif;
             font-weight: 600;
-            font-size: 16px;
+            color: #ff1493;
+            text-align: center;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 182, 217, 0.6);
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.25);
             cursor: pointer;
-        ">
-            Назад на главную страницу
-        </button>
+            transition: all 0.25s ease;
+        }
+
+        .glass-btn:hover {
+            background: rgba(255, 255, 255, 0.45);
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+            border-color: rgba(255, 105, 180, 0.9);
+            color: #ff007f;
+        }
+
+        .glass-btn:active {
+            transform: scale(0.97);
+        }
+    </style>
+
+    <a href="https://creative-marscapone-486.notion.site/2b1c3df492be8046aaadca5da0034963?pvs=73" target="_blank">
+        <div class="glass-btn">Назад на главную страницу</div>
     </a>
 """, unsafe_allow_html=True)
+
