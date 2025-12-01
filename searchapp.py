@@ -2,44 +2,49 @@ import streamlit as st
 import requests
 import json
 
-# Настройка страницы
-st.set_page_config(page_title="Картины Клода Моне — Поиск", layout="wide")
 
-# 🌸 Глобальная голубо-розовая тема
+st.set_page_config(
+    page_title="Картины Клода Моне — Поиск",
+    layout="wide"
+)
+
+
 st.markdown("""
 <style>
 
-body {
-    background-color: #e8f6ff !important; /* нежно-голубой фон */
-}
-
-/* Главный контейнер */
-.main {
+/* Основной фон */
+html, body, .main, .stApp {
     background-color: #e8f6ff !important;
+    color: #222 !important;
 }
 
 /* Заголовки */
 h1, h2, h3, h4, h5, h6 {
-    color: #ff69b4 !important; /* ярко-розовый */
+    color: #ff69b4 !important;
     font-weight: 700 !important;
 }
 
 /* Обычный текст */
 p, label, span, div {
-    color: #444 !important;
+    color: #222 !important;
+}
+
+/* Текст результатов поиска */
+.stMarkdown, .markdown-text-container {
+    color: #222 !important;
 }
 
 /* Поле ввода */
 input[type="text"] {
     background-color: #ffffff !important;
     border: 2px solid #ffb6d9 !important;
-    color: #333 !important;
+    color: #222 !important;
     border-radius: 10px !important;
 }
 
 /* Кнопки */
 button, .stButton > button {
-    background-color: #ffb6d9 !important; 
+    background-color: #ffb6d9 !important;
     color: #ffffff !important;
     border-radius: 10px !important;
     border: 2px solid #ff69b4 !important;
@@ -52,15 +57,21 @@ button:hover, .stButton > button:hover {
     border-color: #ff1493 !important;
 }
 
-/* Блоки */
+/* Кастомные блоки */
 .custom-box {
     background-color: #d7efff !important;
     border: 2px solid #ffb6d9 !important;
     border-radius: 15px !important;
     padding: 15px !important;
+    color: #222 !important;
 }
 
-/* Разделители */
+/* Списки */
+ul, li {
+    color: #222 !important;
+}
+
+/* Горизонтальная линия */
 hr {
     border: 1px solid #ffb6d9 !important;
 }
@@ -69,15 +80,15 @@ hr {
 """, unsafe_allow_html=True)
 
 
-# Получаем Groq API ключ
+
+
 if 'GROQ_API_KEY' in st.secrets:
     GROQ_API_KEY = st.secrets['GROQ_API_KEY']
 else:
     st.error("Ключ GROQ_API_KEY не найден в секретах.")
     GROQ_API_KEY = None
 
-
-st.title("🔍 Поиск актуальных новостей о творчестве Клода Моне")
+st.title("Поиск актуальной информации о творчестве Клода Моне")
 
 
 def search_news(query):
@@ -114,42 +125,43 @@ def search_news(query):
         return f"Ошибка: {str(e)}"
 
 
-# Интерфейс поиска
-st.header("Введите запрос для поиска новостей о Клоде Моне")
+
+# Интерфейс
+st.header("Введите запрос для поиска информации о творчестве Клоде Моне")
+
 search_query = st.text_input("Ваш запрос:", placeholder="Например: Самая популярная картина Клода Моне")
 
 if search_query:
-    with st.spinner("Ищем новости..."):
+    with st.spinner("Ищем информацию..."):
         results = search_news(search_query)
         if results:
-            st.subheader("✨ Результаты поиска:")
+            st.subheader("Результаты поиска:")
             st.write(results)
         else:
             st.error("Не удалось выполнить поиск")
 
 
-st.header("📌 Примеры запросов:")
+st.header("Примеры запросов:")
 st.markdown("""
 - **Самая дорогая картина Клода Моне**  
 - **Популярные серии картин Клода Моне**  
 - **Последний аукцион по продаже картин**  
-- **Любимый жанр Клода Моне**  
+- **Жанры, в которых работал Моне**  
 """)
 
 
 st.markdown("---")
 
 # Кнопка "Назад"
-if st.button("⬅️ Назад", use_container_width=True, key="back_news"):
+if st.button("Назад на главную страницу", use_container_width=True, key="back_news"):
     st.markdown("""
     <div class='custom-box'>
         <h4 style='color: #ff69b4; margin-top: 0;'>Перейти на главную страницу</h4>
-        <p style='margin-bottom: 10px;'>Нажмите на ссылку ниже:</p>
+        <p>Нажмите на ссылку ниже:</p>
         <a href='https://creative-marscapone-486.notion.site/2b1c3df492be8046aaadca5da0034963?pvs=73' 
            target='_blank' 
            style='color: #ff1493; text-decoration: none; font-weight: bold; font-size: 16px;'>
            Главная страница
         </a>
-        <p style='margin-top: 10px; font-size: 12px; color: #555;'>Ссылка откроется в новой вкладке</p>
     </div>
     """, unsafe_allow_html=True)
