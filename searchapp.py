@@ -126,8 +126,7 @@ def search_news(query):
 
 
 
-# Интерфейс
-st.header("Введите запрос для поиска информации о творчестве Клоде Моне")
+
 
 search_query = st.text_input("Ваш запрос:", placeholder="Например: Самая популярная картина Клода Моне")
 
@@ -157,7 +156,6 @@ if st.button("Назад на главную страницу", use_container_wi
     st.markdown("""
     <div class='custom-box'>
         <h4 style='color: #ff69b4; margin-top: 0;'>Перейти на главную страницу</h4>
-        <p>Нажмите на ссылку ниже:</p>
         <a href='https://creative-marscapone-486.notion.site/2b1c3df492be8046aaadca5da0034963?pvs=73' 
            target='_blank' 
            style='color: #ff1493; text-decoration: none; font-weight: bold; font-size: 16px;'>
